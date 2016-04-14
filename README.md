@@ -1,8 +1,7 @@
 # BUPTLoginByPython3
 
 北邮网关登陆程序，Python3版本
-
-windows环境下且无python可以使用 [windows版本](https://github.com/zwk19023393/BUPTNetLoginByWPF)
+> windows环境下且无python可以使用 [windows版本](https://github.com/zwk19023393/BUPTNetLoginByWPF)
 
 ## 安装
 支持pip一键安装，输入：
