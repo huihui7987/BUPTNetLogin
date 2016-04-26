@@ -1,15 +1,14 @@
 # !/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import os
-
-__author__ = 'InG_byr'
+import sys
 from urllib import request, parse
 from configparser import ConfigParser
 from bs4 import BeautifulSoup
-import sys
+
+__author__ = 'InG_byr'
 
 
-# TODO第一次登陆情况未处理，账户密码为空时
 class BUPTLogin():
     def __init__(self):
         self.url = 'http://10.3.8.211'
@@ -17,9 +16,19 @@ class BUPTLogin():
 
     # load the config file
     def load_config(self):
+
         self.cfg = ConfigParser()
-        print(os.getcwd())
-        self.cfg.read(os.getcwd()+'/BUPTLogin/'+'app.ini')
+        self.cfg.read(os.getcwd() + '/BUPTLogin/app.ini')
+
+        if len(sys.argv) == 3:
+            self.set_user(sys.argv[1], sys.argv[2])
+            print('>>>strat login account: {}'.format(sys.argv[1]))
+            self.start_login()
+        elif len(sys.argv) == 2:
+            raise SystemExit('[error]need more options, forget to input the password?')
+        elif len(sys.argv) > 3:
+            raise SystemExit('[error]too much options!')
+
         self.saveUser = self.cfg.getboolean('tool', 'saveUser')
         if self.saveUser:
             self.set_user(self.cfg.get('user', 'account'),
@@ -31,16 +40,6 @@ class BUPTLogin():
     def set_user(self, account, password):
         self.account = account
         self.password = password
-
-    # get the options
-    def get_input_user(self, sysargv):
-        if len(sysargv) == 3:
-            self.set_user(sysargv[1], sysargv[2])
-            print('>>>strat login account: {}'.format(sysargv[1]))
-        elif len(sysargv) == 2:
-            raise SystemExit('[error]need more options, forget to input the password?')
-        elif len(sysargv) > 3:
-            raise SystemExit('[error]too much options!')
 
     # login to BUPT network
     def start_login(self):
@@ -70,7 +69,7 @@ class BUPTLogin():
             self.save_user(self.account, self.password)
             self.show_use_data()
 
-    #when login failed
+    # when login failed
     def login_failed(self):
         account = input('>>>Account: ')
         password = input('>>>Password: ')
@@ -93,16 +92,20 @@ class BUPTLogin():
         flow3 = '.'
         print('>>>Used internet traffic : {0}{1}{2} MByte'.format(int(flow1 / 1024), flow3, int(flow0 / 1024)))
         print('>>>Balance : {} RMB'.format(fee1 / 10000))
+        raise SystemExit()
 
     # when login successfully save the user auto
     def save_user(self, account, password):
         self.cfg.set('user', 'account', account)
         self.cfg.set('user', 'password', password)
         self.cfg.set('tool', 'saveUser', 'True')
-        self.cfg.write(open(os.getcwd()+'/BUPTLogin/'+'app.ini', 'r+'))
+        self.cfg.write(open(os.getcwd() + '/BUPTLogin/app.ini', 'r+'))
+
+
+def doLogin():
+    mLogin = BUPTLogin()
+    mLogin.start_login()
 
 
 if __name__ == '__main__':
-    mLogin = BUPTLogin()
-    mLogin.get_input_user(sys)
-    mLogin.start_login()
+    doLogin()
