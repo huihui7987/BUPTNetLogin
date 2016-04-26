@@ -13,13 +13,13 @@
 - 带参数运行
 命令格式如下：
 ```html
-    Python BUPTLogin [校园网账户] [密码]
+    BUPTLogin [校园网账户] [密码]
 ```
 
 - 不带参数运行
 直接输入
 ```html
-    Python BUPTLogin
+    BUPTLogin
 ```
 如果为第一次登陆将会提示输入账户密码
 
