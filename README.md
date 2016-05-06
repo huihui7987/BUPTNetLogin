@@ -13,13 +13,13 @@
 - 带参数运行
 命令格式如下：
 ```html
-    BUPTLogin [校园网账户] [密码]
+    bupt.login [校园网账户] [密码]
 ```
 
 - 不带参数运行
 直接输入
 ```html
-    BUPTLogin
+    bupt.login
 ```
 如果为第一次登陆将会提示输入账户密码
 
