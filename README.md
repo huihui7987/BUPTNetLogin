@@ -37,4 +37,4 @@
 - BeautifulSoup4
 - lxml
 
-> 更多请前往 [个人博客](http://www.ingbyr.tk)
+> 更多请前往 [个人博客](http://www.ingbyr.com)
