@@ -6,34 +6,40 @@
 ## 安装
 支持pip一键安装，输入：
 ```html
-    pip install BUPTLogin
+    pip3 install BUPTNetLogin
 ```
 
 ## 使用方法
+### 登录命令（BUPT Net Login）
 - 带参数运行
-命令格式如下：
-```html
-    bupt.login [校园网账户] [密码]
+```
+    bnl [校园网账户] [密码]
 ```
 
 - 不带参数运行
-直接输入
-```html
-    bupt.login
 ```
-如果为第一次登陆将会提示输入账户密码
+    bnl
+```
+> 如果是第一次登陆将会提示输入账户密码，登录过后会保存账户信息到`~/bnl.ini`
 
-- 更新
-```html
-    pip install BUPTLogin --upgrade
+### 修改登录账户（Change User）
+```
+    bnl [校园网账户] [密码]
+```
+使用带参数运行，登录成功后会自动更新`~/bnl.ini`。也可以直接修改`~/bnl.ini`
+
+### 注销命令（BUPT Net Logout）
+```
+bnlo
 ```
 
-## 注意事项
-- 第一次登陆成功后将自动保存账户密码，下一次登陆不需要输入参数。若需要切换账户，直接带参数运行即可
-- 仅在Python3版本测试通过，Python2运行情况未知
+### 更新
+```html
+    pip3 install BUPTNetLogin --upgrade
+```
 
 ## 依赖库
-无需自己安装，pip将自动安装
+安装BUPTNetLogin时将自动安装以下Python库
 - BeautifulSoup4
 - lxml
 

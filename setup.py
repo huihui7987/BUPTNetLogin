@@ -6,16 +6,18 @@ import setuptools
 __author__ = 'InG_byr'
 
 setuptools.setup(
-    name='BUPTLogin',
-    version='0.0.6',
-    author='InG_byr',
-    author_email='zwkv587@gmail.com',
-    description='A Simple login program for bupt net',
+    name='BUPTNetLogin',
+    version='0.0.8',
+    author='ingbyr',
+    author_email='admin@ingbyr.com',
+    url='http://www.ingbyr.com',
+    description='Command line tool to login BUPT net',
     packages=setuptools.find_packages(exclude=['BeautifulSoup4', 'lxml']),
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'bupt.login = BUPTLogin.login:doLogin'
+            'bnl = BUPTLogin.login:do_login',
+            'bnlo = BUPTLogin.logout:logout'
         ]
     },
 )
