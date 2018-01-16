@@ -5,7 +5,7 @@ from urllib import request
 from bs4 import BeautifulSoup
 
 __author__ = 'ingbyr'
-__email__ = 'admin@ingbyr.com'
+__email__ = 'dev@ingbyr.com'
 
 
 def show_result(content):

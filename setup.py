@@ -3,16 +3,20 @@
 
 import setuptools
 
-__author__ = 'InG_byr'
+__author__ = 'ingbyr'
 
 setuptools.setup(
     name='BUPTNetLogin',
-    version='0.0.8',
+    version='0.0.9',
     author='ingbyr',
-    author_email='admin@ingbyr.com',
+    author_email='dev@ingbyr.com',
     url='http://www.ingbyr.com',
-    description='Command line tool to login BUPT net',
-    packages=setuptools.find_packages(exclude=['BeautifulSoup4', 'lxml']),
+    description='Command line tool to login the BUPT net',
+    packages=['BUPTLogin'],
+    install_requires=[
+         'beautifulsoup4',
+        'lxml'
+    ],
     include_package_data=True,
     entry_points={
         'console_scripts': [
